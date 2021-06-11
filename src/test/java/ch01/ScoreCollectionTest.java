@@ -1,5 +1,6 @@
 package ch01;
 
+import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.*;
 
 import org.junit.Test;
@@ -12,12 +13,18 @@ import org.junit.Test;
 public class ScoreCollectionTest {
 
     @Test
-    public void test() throws Exception{
+    public void test() throws Exception {
         // given
-        fail("Not yet implemented");
+        ScoreCollection collection = new ScoreCollection();
+        collection.add(() -> 5);
+        collection.add(() -> 7);
+
         // when
+        int actualResult = collection.arithmeticMean();
 
         // then
+        assertThat(actualResult,equalTo(6));
+
     }
 
 
